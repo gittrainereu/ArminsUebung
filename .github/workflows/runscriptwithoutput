@@ -1,4 +1,4 @@
-name: CI
+ame: CI
 
 # Controls when the workflow will run
 on:
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v4
-      - name: run_deploy 
+      - name: run deploy
         id: run_deploy
         shell: bash
         run: |
