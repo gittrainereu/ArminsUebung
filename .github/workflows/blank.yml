@@ -1,26 +1,36 @@
-# This is a basic workflow to help you get started with Actions
+# Work with secrets 
 
-name: Mein erster Workflow 
+## Secret in der Gui festlegen 
 
-# Controls when the workflow will run
-on: push
+ * SETTINGS -> Secrets and variables -> Actions - New Repository secret 
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+```
+SECRET_SUPER_SECRET
+```
+
+```
+mysecretkey 
+```
+
+## Workflow 
+
+```
+name: secret 
+
+on: [push]
+
 jobs:
-  # This workflow contains a single job called "build"
-  jochen-checksout-and-runs-something:
-    # The type of runner that the job will run on
+  job1:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-
-      - name: Checke repo aus
-        uses: actions/checkout@v4
-        
-      - run: |
-          ls -la
-          pwd
-          env
-      # Runs a single command using the runners shell
-      - run: echo Hello, world!
+      - name:  show secrets and env  
+        shell: bash
+        env:
+          SUPER_SECRET: ${{ secrets.SECRET_SUPER_SECRET }}
+          DAY: "monday"
+        run: |
+          echo "show env"
+          echo "$DAY"
+          echo "$SUPER_SECRET"
+          echo "Show secret" 
+          echo "${{ secrets.SECRET_SUPER_SECRET }}"
