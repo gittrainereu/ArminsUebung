@@ -51,4 +51,3 @@ jobs:
             echo "Deploying version ${{ github.event.inputs.version }} to ${{ github.event.inputs.environment }}..."
             # real deployment commands go here
           fi
-          
