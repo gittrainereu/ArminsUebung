@@ -1,20 +1,3 @@
-# Work with secrets 
-
-## Secret in der Gui festlegen 
-
- * SETTINGS -> Secrets and variables -> Actions - New Repository secret 
-
-```
-SECRET_SUPER_SECRET
-```
-
-```
-mysecretkey 
-```
-
-## Workflow 
-
-```
 name: secret 
 
 on: [push]
